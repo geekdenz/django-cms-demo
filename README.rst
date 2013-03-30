@@ -103,20 +103,25 @@ recommended you use better names for production setups.
     Password: admin
     Password (again): admin
     Superuser created successfully.
-    Test your installation up to now by running:
+Test your installation up to now by running:
+
+::
     $ ifconfig #grab the ip to enter in your browser
     $ python manage.py runserver 0.0.0.0:8000
-    Go to your ip in your browser to test the installation.
-    http://192.168.1.101:8000
-    If it works, now configure apache.
-    Add this to /etc/apache
 
+Go to your ip in your browser to test the installation.
+http://192.168.1.101:8000
+If it works, now configure apache.
+Add this to /etc/apache2/sites-enabled/000-default (inside the <VirtualHost> directive):
+
+::
         WSGIScriptAlias /django /opt/django-cms/django.wsgi
         <Directory /opt/django-cms>
             Order deny,allow
             Allow from all
         </Directory>
 
-    Go to http://192.168.1.101/django/ and you should see a working CMS!
-    Have fun exploring!
+Go to http://192.168.1.101/django/ (replace with your IP) and you should see a working CMS!
+This should also work for other VirtualHosts.
+Have fun exploring!
 
