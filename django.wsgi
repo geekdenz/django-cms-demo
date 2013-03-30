@@ -1,7 +1,7 @@
 import os
 import sys
 
-path = '/opt/aep-django'
+path = '/opt/django-cms'
 if path not in sys.path:
     sys.path.append(path)
 
