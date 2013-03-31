@@ -93,6 +93,7 @@ recommended you use better names for production setups.
     ### Shall the new role be allowed to create more new roles? (y/n) n
     $ createdb django_cms
     $ exit
+    $ sudo service postgresql restart
     $ sudo easy_install pip
     $ sudo pip install -r requirements.txt
     $ python manage.py syncdb --all
@@ -113,7 +114,12 @@ Test your installation up to now by running:
 Go to your ip in your browser to test the installation.
 http://192.168.1.101:8000
 If it works, now configure apache.
-Add this to /etc/apache2/sites-enabled/000-default (inside the <VirtualHost> directive):
+
+::
+
+    $ sudo cp default /etc/apache2/sites-available/
+
+Alternatively add this to /etc/apache2/sites-enabled/000-default (inside the <VirtualHost> directive):
 
 ::
 
@@ -122,11 +128,6 @@ Add this to /etc/apache2/sites-enabled/000-default (inside the <VirtualHost> dir
         Order deny,allow
         Allow from all
     </Directory>
-
-Alternatively, you can simply copy the file in this repository:
-
-::
-    $ sudo cp default /etc/apache2/sites-available/
 
 Go to http://192.168.1.101/ (replace with your IP) and you should see a working CMS!
 This should also work for other VirtualHosts.
