@@ -124,7 +124,7 @@ Alternatively add this to /etc/apache2/sites-enabled/000-default (inside the <Vi
 
 ::
 
-    WSGIScriptAlias /django /opt/django-cms/django.wsgi
+    WSGIScriptAlias / /opt/django-cms/django.wsgi
     <Directory /opt/django-cms>
         Order deny,allow
         Allow from all
