@@ -89,7 +89,7 @@ recommended you use better names for production setups.
     ### Enter password for new role: django_cms
     ### Enter it again: django_cms
     ### Shall the new role be a superuser? (y/n) n
-    ### Shall the new role be allowed to create databases? (y/n) y
+    ### Shall the new role be allowed to create databases? (y/n) n
     ### Shall the new role be allowed to create more new roles? (y/n) n
     $ createdb django_cms
     $ exit
