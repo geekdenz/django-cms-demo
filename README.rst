@@ -94,7 +94,6 @@ recommended you use better names for production setups.
     $ createdb django_cms
     $ exit
     $ sudo easy_install pip
-    $ cd django-cms
     $ sudo pip install -r requirements.txt
     $ python manage.py syncdb --all
     ### Would you like to create one now? (yes/no): yes
