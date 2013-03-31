@@ -118,6 +118,7 @@ If it works, now configure apache.
 ::
 
     $ sudo cp default /etc/apache2/sites-available/
+    $ sudo service apache2 restart
 
 Alternatively add this to /etc/apache2/sites-enabled/000-default (inside the <VirtualHost> directive):
 
