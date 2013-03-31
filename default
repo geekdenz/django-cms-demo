@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+    ServerName uvm
+    ServerAdmin webmaster@localhost
+    WSGIScriptAlias / /opt/django-cms/django.wsgi
+    <Directory /opt/django-cms>
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>

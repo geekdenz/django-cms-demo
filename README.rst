@@ -59,7 +59,7 @@ pw: djangocms
 
 
 Alternative Installation (Ubuntu 12.04 Server Production - Apache)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------------------
 
 If you want to install this version in production and you have trouble with the Django documention setting this up,
 here an alternative way to install it on a (vanilla) Ubuntu 12.04 Server installation.
@@ -77,17 +77,15 @@ recommended you use better names for production setups.
 
     $ sudo apt-get update
     $ sudo apt-get install git python python-setuptools python-imaging python-psycopg2 gcc postgresql-9.1 python-dev apache2 libapache2-mod-wsgi
-    $ sudo vi /etc/postgresql/9.1/main/pg_hba.conf # add the following line:
-    local   all             all                                     md5
-    $ sudo vi /etc/postgresql/9.1/main/postgresql.conf # add/uncomment this line:
-    listen_addresses = 'localhost'
+    $ sudo cp p* /etc/postgresql/9.1/main/
+    ### alternatively, you can do a diff and apply the changes manually
     $ sudo su postgres
     $ createuser -E -P django_cms
-    Enter password for new role: django_cms
-    Enter it again: django_cms
-    Shall the new role be a superuser? (y/n) n
-    Shall the new role be allowed to create databases? (y/n) y
-    Shall the new role be allowed to create more new roles? (y/n) n
+    ### Enter password for new role: django_cms
+    ### Enter it again: django_cms
+    ### Shall the new role be a superuser? (y/n) n
+    ### Shall the new role be allowed to create databases? (y/n) y
+    ### Shall the new role be allowed to create more new roles? (y/n) n
     $ createdb django_cms
     $ exit
     $ sudo easy_install pip
@@ -97,12 +95,13 @@ recommended you use better names for production setups.
     $ cd django-cms
     $ sudo pip install -r requirements.txt
     $ python manage.py syncdb --all
-    Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'super'): admin
-    E-mail address: mail@example.com
-    Password: admin
-    Password (again): admin
-    Superuser created successfully.
+    ### Would you like to create one now? (yes/no): yes
+    ### Username (leave blank to use 'super'): admin
+    ### E-mail address: mail@example.com
+    ### Password: admin
+    ### Password (again): admin
+    ### Superuser created successfully.
+
 Test your installation up to now by running:
 
 ::
@@ -123,7 +122,12 @@ Add this to /etc/apache2/sites-enabled/000-default (inside the <VirtualHost> dir
         Allow from all
     </Directory>
 
-Go to http://192.168.1.101/django/ (replace with your IP) and you should see a working CMS!
+Alternatively, you can simply copy the file in this repository:
+
+::
+    $ sudo cp default /etc/apache2/sites-available/
+
+Go to http://192.168.1.101/ (replace with your IP) and you should see a working CMS!
 This should also work for other VirtualHosts.
 Have fun exploring!
 
