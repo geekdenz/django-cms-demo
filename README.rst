@@ -77,6 +77,9 @@ recommended you use better names for production setups.
 
     $ sudo apt-get update
     $ sudo apt-get install git python python-setuptools python-imaging python-psycopg2 gcc postgresql-9.1 python-dev apache2 libapache2-mod-wsgi
+    $ cd /opt
+    $ sudo chown super /opt
+    $ git clone git://github.com/geekdenz/django-cms-demo.git django-cms
     $ sudo cp p* /etc/postgresql/9.1/main/
     ### alternatively, you can do a diff and apply the changes manually
     $ sudo su postgres
@@ -89,9 +92,6 @@ recommended you use better names for production setups.
     $ createdb django_cms
     $ exit
     $ sudo easy_install pip
-    $ cd /opt
-    $ sudo chown super /opt
-    $ git clone git://github.com/geekdenz/django-cms-demo.git django-cms
     $ cd django-cms
     $ sudo pip install -r requirements.txt
     $ python manage.py syncdb --all
